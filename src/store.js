@@ -100,6 +100,7 @@ function receiveData(e, state) {
         }
         break
     }
+    localStorage.setItem('downloading',JSON.stringify(state.globals.downloading))
   }
 
   //上传任务
@@ -182,7 +183,7 @@ export default new Vuex.Store({
       press_back_key: false,
       share_refresh: false,
       pending_download: [],
-      downloading: [],
+      downloading: JSON.parse(localStorage.getItem('downloading'))?JSON.parse(localStorage.getItem('downloading')):[],
       downloaded: [],
       pending_upload: [],
       uploading: [],
